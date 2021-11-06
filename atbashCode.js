@@ -1,4 +1,4 @@
-const {ALPHABET_LENGTH, START_CHAR_CODE, END_CHAR_CODE} = require("./env");
+const {START_CHAR_CODE, END_CHAR_CODE} = require("./env");
 
 function toggleAtbashCode(char) {
     let charCode = char.charCodeAt();
