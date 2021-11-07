@@ -1,7 +1,7 @@
 const configValidator = require('./configValidator');
 const errorHandler = require('./errorHandler');
 const createReadStream = require('./readStream');
-const {pipeline} = {'stream'};
+const {pipeline} = require('stream');
 const parsArgs = (name) => {
     const valueIndex = process.argv.indexOf(name);
     if (~valueIndex) {
@@ -30,8 +30,6 @@ const runApp = () => {
 
 };
 const streams = runApp();
-pipeline(
-    streams.readStream,
-);
+
 
 
