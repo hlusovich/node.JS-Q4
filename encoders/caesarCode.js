@@ -1,4 +1,4 @@
-const {ALPHABET_LENGTH, START_CHAR_CODE, END_CHAR_CODE} = require("./env");
+const {ALPHABET_LENGTH, START_CHAR_CODE, END_CHAR_CODE} = require("../env");
 
 function toggleCaesarCode(char, step, rotation) {
     let charCode = char.charCodeAt();

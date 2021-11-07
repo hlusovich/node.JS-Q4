@@ -23,5 +23,6 @@ You can use stdout instead of using  output
 node my_ciphering_cli -c "..." -i "..." -o "..."
 
 #Example
-node my_ciphering_cli.js --config "C1-C1-R0-A" - means
+node my_ciphering_cli --config "C1-C1-R0-A" -i ./input.txt -o ./output.txt
+--config "C1-C1-R0-A" - means
 "encode by Caesar cipher => encode by Caesar cipher => decode by ROT-8 => use Atbash"

@@ -1,4 +1,4 @@
-const {START_CHAR_CODE, END_CHAR_CODE, ALPHABET_LENGTH} = require("./env");
+const {START_CHAR_CODE, END_CHAR_CODE, ALPHABET_LENGTH} = require("../env");
 
 function toggleRot8Code(char) {
     const step = 8;

@@ -2,7 +2,7 @@
   "name": "node.js-q4",
   "version": "1.0.0",
   "description": "",
-  "main": "caesarCode.js",
+  "main": "encoders/caesarCode.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,6 +1,7 @@
-const configValidator = require('./configValidator');
-const errorHandler = require('./errorHandler');
-const createReadStream = require('./readStream');
+const configValidator = require('./validators/configValidator');
+const errorHandler = require('./handlers/errorHandler');
+const createReadStream = require('./streams/createReadStream');
+const createWriteStream = require('./streams/createWriteStream');
 const {pipeline} = require('stream');
 const parsArgs = (name) => {
     const valueIndex = process.argv.indexOf(name);
@@ -21,8 +22,10 @@ const runApp = () => {
         const input = parsArgs('-i') || parsArgs('--input') || false;
         const readStream = createReadStream(input);
         const output = parsArgs('-o') || parsArgs('--output') || false;
+        const writeStream = createWriteStream(output);
         return {
-            readStream
+            readStream,
+            writeStream
         }
     } catch (e) {
         errorHandler(e);
@@ -30,6 +33,14 @@ const runApp = () => {
 
 };
 const streams = runApp();
-
+pipeline(
+    streams.readStream,
+    streams.writeStream,
+    (err) => {
+        if (err) {
+            errorHandler(err);
+        }
+    }
+);
 
 

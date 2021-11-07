@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require("path");
-const errorHandler = require('./errorHandler');
+const errorHandler = require('../handlers/errorHandler');
 const createReadStream = (patch) => {
     try {
         if (patch) {
