@@ -1,5 +1,6 @@
 #node.JS Q4 2021
-## Params:
+There is no necessity to do npm install.
+# Params:
 CLI needs 3 arguments:
 -i, --input : an input file;
 -o, --output : an output file;
@@ -18,7 +19,9 @@ Config option is required;
 You can use stdin instead of using  input
 You can use stdout instead of using  output
 
-#Example
+#RUN:
+node my_ciphering_cli -c "..." -i "..." -o "..."
 
+#Example
 node my_ciphering_cli.js config "C1-C1-R0-A" - means
 "encode by Caesar cipher => encode by Caesar cipher => decode by ROT-8 => use Atbash"
