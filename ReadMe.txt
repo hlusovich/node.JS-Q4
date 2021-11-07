@@ -20,5 +20,5 @@ You can use stdout instead of using  output
 
 #Example
 
-node app.js config "C1-C1-R0-A" - means
+node my_ciphering_cli.js config "C1-C1-R0-A" - means
 "encode by Caesar cipher => encode by Caesar cipher => decode by ROT-8 => use Atbash"
