@@ -1,17 +1,17 @@
 const fs = require('fs');
 const path = require("path");
 const errorHandler = require('./errorHandler');
-const createReadStream = (patch) => {
+const createWriteStream = (patch) => {
     try {
         if (patch) {
             const isExist = fs.existsSync(path.join(__dirname, patch));
             if (isExist) {
-                return fs.createReadStream(path.join(__dirname, patch), 'utf8');
+                return fs.createWriteStream(path.join(__dirname, patch), {flag:'+a'});
             } else {
                 throw new Error("This input isn't exist");
             }
         } else {
-            return process.stdin;
+            return process.stdout;
         }
 
     } catch (e) {
@@ -20,4 +20,4 @@ const createReadStream = (patch) => {
 
 };
 
-module.exports = createReadStream;
+module.exports = createWriteStream;
