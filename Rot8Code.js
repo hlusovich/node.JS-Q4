@@ -13,4 +13,4 @@ function toggleRot8Code(char) {
         return char;
     }
 }
-module.exports = toggleRot13Code;
+module.exports = toggleRot8Code;
