@@ -4,7 +4,7 @@ const availableCommands = {
     R: ["R1", "R0"],
 };
 const validateConfig = (config) => {
-    return config.every(item => {
+    return config.split('-').every(item => {
         if (availableCommands[item[0]] && availableCommands[item[0]].includes(item)) {
             return true;
         }
