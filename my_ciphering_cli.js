@@ -5,25 +5,21 @@ const createWriteStream = require('./streams/createWriteStream');
 const TransformStream = require('./streams/transformStream');
 const {pipeline} = require('stream');
 const commands = require('./commands');
-const parsArgs = (name) => {
-    const valueIndex = process.argv.indexOf(name);
-    if (~valueIndex) {
-        return process.argv[valueIndex + 1];
-    }
-    return false;
-};
+const configParser = require ('./optionsParsers/configParser');
+const inputParser = require ('./optionsParsers/inputParsers');
+const outputParser = require ('./optionsParsers/outputParses');
 const runApp = () => {
     try {
-        const config = (parsArgs('-c') || parsArgs('--config')) || false;
+        const config = configParser();
         if (!config) {
             throw  new Error("Option config is required");
         }
         if (!configValidator(config)) {
             throw  new Error("Config isn't correct");
         }
-        const input = parsArgs('-i') || parsArgs('--input') || false;
+        const input = inputParser();
         const readStream = createReadStream(input);
-        const output = parsArgs('-o') || parsArgs('--output') || false;
+        const output = outputParser();
         const writeStream = createWriteStream(output);
         return {
             readStream,
