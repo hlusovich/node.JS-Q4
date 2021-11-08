@@ -1,7 +1,6 @@
-const {ALPHABET_LENGTH, START_CHAR_CODE, END_CHAR_CODE} = require("../env");
+const {START_CHAR_CODE, END_CHAR_CODE, START_CHAR_CODE_UPPER_CASE, END_CHAR_CODE_UPPER_CASE, ALPHABET_LENGTH} = require("../env");
 
-function toggleCaesarCode(char, step, rotation) {
-    let charCode = char.charCodeAt();
+function toggleCaesarCode(charCode, step, rotation) {
     if (step > ALPHABET_LENGTH) {
         step = step % ALPHABET_LENGTH;
     }
@@ -20,9 +19,23 @@ function toggleCaesarCode(char, step, rotation) {
                 }
                 break
         }
-        return String.fromCharCode(charCode);
-    } else {
-        return char;
     }
+    else if (charCode >= START_CHAR_CODE_UPPER_CASE && charCode <= END_CHAR_CODE_UPPER_CASE) {
+        switch (rotation) {
+            case "left":
+                charCode -= step;
+                if (charCode < START_CHAR_CODE_UPPER_CASE) {
+                    charCode = charCode + ALPHABET_LENGTH;
+                }
+                break;
+            case "right":
+                charCode += step;
+                if (charCode > END_CHAR_CODE_UPPER_CASE) {
+                    charCode = charCode - ALPHABET_LENGTH;
+                }
+                break
+        }
+    }
+    return charCode;
 }
 module.exports = toggleCaesarCode;

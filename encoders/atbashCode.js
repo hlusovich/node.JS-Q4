@@ -1,13 +1,13 @@
-const {START_CHAR_CODE, END_CHAR_CODE} = require("../env");
+const {START_CHAR_CODE, END_CHAR_CODE, START_CHAR_CODE_UPPER_CASE, END_CHAR_CODE_UPPER_CASE} = require("../env");
 
-function toggleAtbashCode(char) {
-    let charCode = char.charCodeAt();
-    if (charCode >= START_CHAR_CODE && charCode <= END_CHAR_CODE) {
+function toggleAtbashCode(charCode) {
+    if (charCode >= START_CHAR_CODE && charCode <= END_CHAR_CODE_UPPER_CASE) {
         charCode = END_CHAR_CODE - charCode + START_CHAR_CODE;
-        return String.fromCharCode(charCode);
-    } else {
-        return char;
+    } else if (charCode >= START_CHAR_CODE_UPPER_CASE && charCode <= END_CHAR_CODE_UPPER_CASE) {
+        charCode = END_CHAR_CODE_UPPER_CASE - charCode + START_CHAR_CODE_UPPER_CASE;
     }
+    return String.fromCharCode(charCode);
+
 }
 
 module.exports = toggleAtbashCode;

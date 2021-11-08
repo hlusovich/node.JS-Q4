@@ -2,6 +2,7 @@ const configValidator = require('./validators/configValidator');
 const errorHandler = require('./handlers/errorHandler');
 const createReadStream = require('./streams/createReadStream');
 const createWriteStream = require('./streams/createWriteStream');
+const TransformStream = require('./streams/transformStream');
 const {pipeline} = require('stream');
 const parsArgs = (name) => {
     const valueIndex = process.argv.indexOf(name);
@@ -9,7 +10,7 @@ const parsArgs = (name) => {
         return process.argv[valueIndex + 1];
     }
     return false;
-}
+};
 const runApp = () => {
     try {
         const config = (parsArgs('-c') || parsArgs('--config')) || false;
@@ -25,16 +26,19 @@ const runApp = () => {
         const writeStream = createWriteStream(output);
         return {
             readStream,
-            writeStream
-        }
+            writeStream,
+            config
+    }
     } catch (e) {
         errorHandler(e);
     }
 
 };
 const streams = runApp();
+const transformStream = new TransformStream(streams.config);
 pipeline(
     streams.readStream,
+    transformStream,
     streams.writeStream,
     (err) => {
         if (err) {
