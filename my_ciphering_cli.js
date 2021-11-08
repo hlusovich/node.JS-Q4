@@ -4,6 +4,7 @@ const createReadStream = require('./streams/createReadStream');
 const createWriteStream = require('./streams/createWriteStream');
 const TransformStream = require('./streams/transformStream');
 const {pipeline} = require('stream');
+const commands = require('./commands');
 const parsArgs = (name) => {
     const valueIndex = process.argv.indexOf(name);
     if (~valueIndex) {
@@ -28,14 +29,14 @@ const runApp = () => {
             readStream,
             writeStream,
             config
-    }
+        }
     } catch (e) {
         errorHandler(e);
     }
 
 };
 const streams = runApp();
-const transformStream = new TransformStream(streams.config);
+const transformStream = new TransformStream(streams.config,    commands);
 pipeline(
     streams.readStream,
     transformStream,

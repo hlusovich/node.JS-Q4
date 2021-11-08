@@ -5,23 +5,17 @@ const rot8code = require('../encoders/rot8Code');
 const {Buffer} = require('buffer');
 
 class MyTransformStream extends Transform {
-    constructor(options) {
+    constructor(options, commands) {
         super();
         this.options = options.split('-');
-        this.config = {
-            A: (item) => atbashCode(item),
-            C0: (item) => cesarCode(item, 1, "right"),
-            C1: (item) => cesarCode(item, 1, "left"),
-            R0: (item) => rot8code(item, 'right'),
-            R1: (item) => rot8code(item, 'left'),
-        }
+        this.commands = commands
     }
 
     _transform(chunk, encoding, done) {
         let result = chunk;
         this.options.map(option => {
             result = result.map(item => {
-                return this.config[option](item)
+                return this.commands[option](item)
             });
         });
         this.push(result, encoding);
