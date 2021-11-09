@@ -1,11 +1,9 @@
-const availableCommands = {
-    A: ["A"],
-    C: ["C1", "C0"],
-    R: ["R1", "R0"],
-};
+const commands = require('../commands');
+const availableCommands = Object.keys(commands);
+
 const validateConfig = (config) => {
     return config.split('-').every(item => {
-        if (availableCommands[item[0]] && availableCommands[item[0]].includes(item)) {
+        if (availableCommands.includes(item)) {
             return true;
         }
         return false
