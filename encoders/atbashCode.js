@@ -6,7 +6,7 @@ function toggleAtbashCode(charCode) {
     } else if (charCode >= START_CHAR_CODE_UPPER_CASE && charCode <= END_CHAR_CODE_UPPER_CASE) {
         charCode = END_CHAR_CODE_UPPER_CASE - charCode + START_CHAR_CODE_UPPER_CASE;
     }
-    return String.fromCharCode(charCode);
+    return charCode;
 
 }
 

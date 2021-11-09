@@ -18,6 +18,7 @@ class MyTransformStream extends Transform {
                 return this.commands[option](item)
             });
         });
+        console.log(result)
         this.push(result, encoding);
         done();
     }

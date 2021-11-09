@@ -10,6 +10,7 @@ const inputParser = require ('./optionsParsers/inputParsers');
 const outputParser = require ('./optionsParsers/outputParses');
 const optionValidator = require('./validators/optionsValidator');
 const permissionValidator = require('./validators/permissionValidator');
+const isFileValidator = require('./validators/isFileValidator');
 const runApp = () => {
     try {
         optionValidator();
@@ -24,10 +25,11 @@ const runApp = () => {
         const output = outputParser();
         if(input){
             permissionValidator(input);
-            console.log(permissionValidator(input))
+            isFileValidator(input);
         }
         if(output){
             permissionValidator(output);
+            isFileValidator(output);
         }
         const readStream = createReadStream(input);
         const writeStream = createWriteStream(output);

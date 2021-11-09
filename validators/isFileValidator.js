@@ -11,5 +11,5 @@ const isFileValidator = (path) => {
 
     }
 };
-module.exports = isFile;
+module.exports = isFileValidator;
 
