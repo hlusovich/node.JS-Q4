@@ -1,24 +1,18 @@
 const fs = require('fs');
 const path = require("path");
 const {PATH} = require('../env');
-const errorHandler = require('../handlers/errorHandler');
+const MyError = require('../myError/MyError');
 const createReadStream = (patch) => {
-    try {
-        if (patch) {
-            const isExist = fs.existsSync(path.join(PATH, patch));
-            if (isExist) {
-                return fs.createReadStream(path.join(PATH, patch), 'utf8');
-            } else {
-                throw new Error("This input isn't exist");
-            }
+    if (patch) {
+        const isExist = fs.existsSync(path.join(PATH, patch));
+        if (isExist) {
+            return fs.createReadStream(path.join(PATH, patch), 'utf8');
         } else {
-            return process.stdin;
+            throw new MyError("This input isn't exist");
         }
-
-    } catch (e) {
-        errorHandler(e);
+    } else {
+        return process.stdin;
     }
-
 };
 
 module.exports = createReadStream;
