@@ -2,11 +2,11 @@ const fs = require('fs');
 const path = require("path");
 const {PATH} = require('../env');
 const MyError = require('../myError/MyError');
-const createWriteStream = (patch) => {
-    if (patch) {
-        const isExist = fs.existsSync(path.join(PATH, patch));
+const createWriteStream = (filePath) => {
+    if (filePath) {
+        const isExist = fs.existsSync(path.join(PATH, filePath));
         if (isExist) {
-            return fs.createWriteStream(path.join(PATH, patch), {flags: 'a+'});
+            return fs.createWriteStream(path.join(PATH, filePath), {flags: 'a+'});
         } else {
             throw new MyError("This output isn't exist");
         }

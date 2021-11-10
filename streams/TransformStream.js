@@ -1,8 +1,4 @@
 const {Transform} = require('stream');
-const cesarCode = require('../encoders/caesarCode');
-const atbashCode = require('../encoders/atbashCode');
-const rot8code = require('../encoders/rot8Code');
-const {Buffer} = require('buffer');
 
 class MyTransformStream extends Transform {
     constructor(options, commands) {

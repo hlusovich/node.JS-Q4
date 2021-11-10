@@ -2,7 +2,7 @@ const configValidator = require('./validators/configValidator');
 const errorHandler = require('./handlers/errorHandler');
 const createReadStream = require('./streams/createReadStream');
 const createWriteStream = require('./streams/createWriteStream');
-const TransformStream = require('./streams/transformStream');
+const TransformStream = require('./streams/TransformStream');
 const {pipeline} = require('stream');
 const commands = require('./commands');
 const configParser = require('./optionsParsers/configParser');
@@ -11,6 +11,7 @@ const outputParser = require('./optionsParsers/outputParses');
 const optionValidator = require('./validators/optionsValidator');
 const permissionValidator = require('./validators/permissionValidator');
 const isFileValidator = require('./validators/isFileValidator');
+
 const MyError = require('./myError/MyError');
 const runApp = () => {
     optionValidator();
@@ -23,10 +24,6 @@ const runApp = () => {
     }
     const input = inputParser();
     const output = outputParser();
-    if (input) {
-        permissionValidator(input);
-        isFileValidator(input);
-    }
     if (output) {
         permissionValidator(output);
         isFileValidator(output);
