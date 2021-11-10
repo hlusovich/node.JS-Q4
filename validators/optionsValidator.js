@@ -1,7 +1,6 @@
 const options = [["-c", "--config"], ["-o", "--output"], ["-i", "--input"]];
-const errorHandler = require('../handlers/errorHandler');
+const MyError = require('../myError/MyError');
 const optionsValidator = () => {
-    try {
         let errorText = "";
         options.map(option => {
             return process.argv.filter((item) => item === option[0] || item === option[1]).length
@@ -11,12 +10,10 @@ const optionsValidator = () => {
             }
         });
         if (errorText) {
-            throw new Error(errorText)
+            throw new MyError(errorText)
         }
-    }
-    catch (e) {
-        errorHandler(e)
-    }
+
+
 
 };
 module.exports = optionsValidator;
