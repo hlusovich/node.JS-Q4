@@ -5,48 +5,45 @@ const createWriteStream = require('./streams/createWriteStream');
 const TransformStream = require('./streams/transformStream');
 const {pipeline} = require('stream');
 const commands = require('./commands');
-const configParser = require ('./optionsParsers/configParser');
-const inputParser = require ('./optionsParsers/inputParsers');
-const outputParser = require ('./optionsParsers/outputParses');
+const configParser = require('./optionsParsers/configParser');
+const inputParser = require('./optionsParsers/inputParsers');
+const outputParser = require('./optionsParsers/outputParses');
 const optionValidator = require('./validators/optionsValidator');
 const permissionValidator = require('./validators/permissionValidator');
 const isFileValidator = require('./validators/isFileValidator');
+const MyError = require('./myError/MyError');
 const runApp = () => {
-    try {
-        optionValidator();
-        const config = configParser();
-        if (!config) {
-            throw  new Error("Option config is required");
-        }
-        if (!configValidator(config)) {
-            throw  new Error("Config isn't correct. Please check all encoder's names.");
-        }
-        const input = inputParser();
-        const output = outputParser();
-        if(input){
-            permissionValidator(input);
-            isFileValidator(input);
-        }
-        if(output){
-            permissionValidator(output);
-            isFileValidator(output);
-        }
-        const readStream = createReadStream(input);
-        const writeStream = createWriteStream(output);
-        return {
-            readStream,
-            writeStream,
-            config
-        }
-    } catch (e) {
-        errorHandler(e);
+    optionValidator();
+    const config = configParser();
+    if (!config) {
+        throw  new MyError("Option config is required");
+    }
+    if (!configValidator(config)) {
+        throw  new MyError("Config isn't correct. Please check all encoder's names.");
+    }
+    const input = inputParser();
+    const output = outputParser();
+    if (input) {
+        permissionValidator(input);
+        isFileValidator(input);
+    }
+    if (output) {
+        permissionValidator(output);
+        isFileValidator(output);
+    }
+    const readStream = createReadStream(input);
+    const writeStream = createWriteStream(output);
+    return {
+        readStream,
+        writeStream,
+        config
     }
 
 };
 
 const streams = runApp();
 
-const transformStream = new TransformStream(streams.config,commands);
+const transformStream = new TransformStream(streams.config, commands);
 
 pipeline(
     streams.readStream,
