@@ -13,40 +13,43 @@ const MyError = require('./myError/MyError');
 const chainStreams = require("./streams/chainStreams");
 
 const runApp = () => {
-    optionValidator();
-    const config = configParser();
-    if (!config) {
-        throw  new MyError("Option config is required");
+    try{
+        optionValidator();
+        const config = configParser();
+        if (!config) {
+            throw  new MyError("Option config is required");
+        }
+        if (!configValidator(config)) {
+            throw  new MyError("Config isn't correct. Please check all encoder's names.");
+        }
+        const input = inputParser();
+        const output = outputParser();
+        if (input) {
+            permissionValidator(input);
+            isFileValidator(input);
+        }
+        if (output) {
+            permissionValidator(output);
+            isFileValidator(output);
+        }
+        const readStream = createReadStream(input);
+        const writeStream = createWriteStream(output);
+        const streamChain = chainStreams(readStream, writeStream, config);
+        return streamChain;
     }
-    if (!configValidator(config)) {
-        throw  new MyError("Config isn't correct. Please check all encoder's names.");
+    catch(e){
+        errorHandler(e);
     }
-    const input = inputParser();
-    const output = outputParser();
-    if (input) {
-        permissionValidator(input);
-        isFileValidator(input);
-    }
-    if (output) {
-        permissionValidator(output);
-        isFileValidator(output);
-    }
-    const readStream = createReadStream(input);
-    const writeStream = createWriteStream(output);
-    const streamChain = chainStreams(readStream, writeStream, config);
-    return streamChain;
+
 
 
 };
 
 const streams = runApp();
-console.log(streams.length)
-
-// process.stdin.on('data', function (data) {
-// console.log(data.toString())
-// });
-
-pipeline(
+process.stdin.on('data', function (data) {
+console.log(data.toString())
+    streams[0] = process.stdin;
+    pipeline(
     ...streams,
     (err) => {
         if (err) {
@@ -54,5 +57,15 @@ pipeline(
         }
     }
 );
+});
+
+// pipeline(
+//     ...streams,
+//     (err) => {
+//         if (err) {
+//             errorHandler(err);
+//         }
+//     }
+// );
 
 
