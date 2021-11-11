@@ -1,4 +1,4 @@
-const commands = require('../commands');
+const commands = require('../commandsForTransformStream');
 const availableCommands = Object.keys(commands);
 const validateConfig = (config) => {
     return config.split('-').every(item => {

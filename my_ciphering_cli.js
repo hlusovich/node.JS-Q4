@@ -2,9 +2,7 @@ const configValidator = require('./validators/configValidator');
 const errorHandler = require('./handlers/errorHandler');
 const createReadStream = require('./streams/createReadStream');
 const createWriteStream = require('./streams/createWriteStream');
-const TransformStream = require('./streams/TransformStream');
 const {pipeline} = require('stream');
-const commands = require('./commands');
 const configParser = require('./optionsParsers/configParser');
 const inputParser = require('./optionsParsers/inputParsers');
 const outputParser = require('./optionsParsers/outputParses');
@@ -12,7 +10,7 @@ const optionValidator = require('./validators/optionsValidator');
 const permissionValidator = require('./validators/permissionValidator');
 const isFileValidator = require('./validators/isFileValidator');
 const MyError = require('./myError/MyError');
-const fs = require("fs")
+const chainStreams = require("./streams/chainStreams");
 
 const runApp = () => {
     optionValidator();
@@ -35,26 +33,21 @@ const runApp = () => {
     }
     const readStream = createReadStream(input);
     const writeStream = createWriteStream(output);
-    return {
-        readStream,
-        writeStream,
-        config
-    }
+    const streamChain = chainStreams(readStream, writeStream, config);
+    return streamChain;
+
 
 };
 
 const streams = runApp();
+console.log(streams.length)
 
-const transformStream = new TransformStream(streams.config, commands);
-
-process.stdin.on('data', function (data) {
-console.log(data.toString())
-});
+// process.stdin.on('data', function (data) {
+// console.log(data.toString())
+// });
 
 pipeline(
-    streams.readStream,
-    transformStream,
-    streams.writeStream,
+    ...streams,
     (err) => {
         if (err) {
             errorHandler(err);
