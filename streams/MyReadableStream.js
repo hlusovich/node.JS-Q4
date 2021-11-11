@@ -1,8 +1,6 @@
 const {Readable} = require('stream');
 const { Buffer } = require ( 'buffer');
 const fs = require('fs');
-const permissionValidator = require('../validators/permissionValidator');
-const isFileValidator = require('../validators/isFileValidator');
 
 class MyReadableStream extends Readable {
     constructor(filename) {
@@ -11,10 +9,6 @@ class MyReadableStream extends Readable {
         this.fd = null;
     }
     _construct(callback){
-        if (this.filename) {
-            permissionValidator(this.filename);
-            isFileValidator(this.filename);
-        }
         fs.open(this.filename,(err,fd)=>{
             if(err){
                 callback(err)

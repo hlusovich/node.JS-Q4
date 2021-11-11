@@ -11,8 +11,9 @@ const outputParser = require('./optionsParsers/outputParses');
 const optionValidator = require('./validators/optionsValidator');
 const permissionValidator = require('./validators/permissionValidator');
 const isFileValidator = require('./validators/isFileValidator');
-
 const MyError = require('./myError/MyError');
+const fs = require("fs")
+
 const runApp = () => {
     optionValidator();
     const config = configParser();
@@ -24,6 +25,10 @@ const runApp = () => {
     }
     const input = inputParser();
     const output = outputParser();
+    if (input) {
+        permissionValidator(input);
+        isFileValidator(input);
+    }
     if (output) {
         permissionValidator(output);
         isFileValidator(output);
@@ -41,6 +46,10 @@ const runApp = () => {
 const streams = runApp();
 
 const transformStream = new TransformStream(streams.config, commands);
+
+process.stdin.on('data', function (data) {
+console.log(data.toString())
+});
 
 pipeline(
     streams.readStream,
