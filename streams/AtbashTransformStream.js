@@ -6,7 +6,7 @@ const {
     END_CHAR_CODE_UPPER_CASE,
 } = require("../env");
 
-class Rot8TransformStream extends Transform {
+class AtbashTransformStream extends Transform {
     constructor() {
         super();
     }
@@ -20,7 +20,6 @@ class Rot8TransformStream extends Transform {
         return charCode;
 
     }
-
     _transform(chunk, encoding, done) {
         let result = chunk.map(item => {
             return this.encode(item);
@@ -30,4 +29,4 @@ class Rot8TransformStream extends Transform {
     }
 }
 
-module.exports = Rot8TransformStream;
+module.exports = AtbashTransformStream;
