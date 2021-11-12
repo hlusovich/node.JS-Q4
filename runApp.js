@@ -6,7 +6,7 @@ const configParser = require('./optionsParsers/configParser');
 const inputParser = require('./optionsParsers/inputParsers');
 const outputParser = require('./optionsParsers/outputParses');
 const optionValidator = require('./validators/optionsValidator');
-const permissionValidator = require('./validators/permissionValidator');
+const readPermissionValidator = require('./validators/readPermissionValidator');
 const isFileValidator = require('./validators/isFileValidator');
 const MyError = require('./myError/MyError');
 const chainStreams = require("./streams/chainStreams");
@@ -24,11 +24,11 @@ const runApp = () => {
         const input = inputParser();
         const output = outputParser();
         if (input) {
-            permissionValidator(input);
+            readPermissionValidator(input);
             isFileValidator(input);
         }
         if (output) {
-            permissionValidator(output);
+            readPermissionValidator(output);
             isFileValidator(output);
         }
         return chainStreams(createReadStream(input), createWriteStream(output), config);
