@@ -41,7 +41,6 @@ class Rot8TransformStream extends Transform {
             }
         }
         return charCode;
-
     }
     _transform(chunk, encoding, done) {
         let result = chunk.map(item => {
