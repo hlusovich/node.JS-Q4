@@ -13,7 +13,7 @@ const MyError = require('./myError/MyError');
 const chainStreams = require("./streams/chainStreams");
 
 const runApp = () => {
-    try{
+    try {
         optionValidator();
         const config = configParser();
         if (!config) {
@@ -32,40 +32,19 @@ const runApp = () => {
             permissionValidator(output);
             isFileValidator(output);
         }
-        const readStream = createReadStream(input);
-        const writeStream = createWriteStream(output);
-        const streamChain = chainStreams(readStream, writeStream, config);
-        return streamChain;
-    }
-    catch(e){
+        return chainStreams(createReadStream(input), createWriteStream(output), config);
+    } catch (e) {
         errorHandler(e);
     }
-
-
-
 };
-
-const streams = runApp();
-process.stdin.on('data', function (data) {
-console.log(data.toString())
-    streams[0] = process.stdin;
-    pipeline(
-    ...streams,
+pipeline(
+    runApp(),
     (err) => {
         if (err) {
             errorHandler(err);
         }
     }
 );
-});
 
-// pipeline(
-//     ...streams,
-//     (err) => {
-//         if (err) {
-//             errorHandler(err);
-//         }
-//     }
-// );
 
 
