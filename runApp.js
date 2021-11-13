@@ -10,7 +10,7 @@ const readPermissionValidator = require('./validators/readPermissionValidator');
 const isFileValidator = require('./validators/isFileValidator');
 const MyError = require('./myError/MyError');
 const chainStreams = require("./streams/chainStreams");
-
+const writePermissionValidator = require('./validators/writePermissionValidator');
 const runApp = () => {
     try {
         optionValidator();
@@ -28,7 +28,7 @@ const runApp = () => {
             isFileValidator(input);
         }
         if (output) {
-            readPermissionValidator(output);
+            writePermissionValidator(output);
             isFileValidator(output);
         }
         return chainStreams(createReadStream(input), createWriteStream(output), config);
