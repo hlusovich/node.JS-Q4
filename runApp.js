@@ -24,8 +24,9 @@ const runApp = () => {
         const input = inputParser();
         const output = outputParser();
         if (input) {
-            readPermissionValidator(input);
             isFileValidator(input);
+            readPermissionValidator(input);
+
         }
         if (output) {
             writePermissionValidator(output);
