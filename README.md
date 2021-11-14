@@ -5,6 +5,7 @@ CLI needs 3 arguments:
 -i, --input : an input file (if you don't pass this arg, you have to use stdin);
 -o, --output : an output file (if you don't pass this arg, you have to use stdout);
 -c, --config: config for ciphers (required);
+Arguments can't be repeated.
 
 Config is a string with pattern {XY(-)}n, where:
 X is a cipher mark:
