@@ -1,4 +1,4 @@
-#node.JS Q4 2021
+# Node.JS Q4 2021
 There is no necessity to do npm install.
 # Params:
 CLI needs 3 arguments:
