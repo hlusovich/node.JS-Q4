@@ -1,12 +1,14 @@
+
 const {expect, describe, beforeAll, afterAll} = require("@jest/globals");
 const fs = require('fs');
-const isFileValidator = require('./isFileValidator');
+const writePermissionValidator = require('./writePermissionValidator');
 const MyError = require('../myError/MyError');
 const dirPath = "./dir";
 const filePath = "./test.txt";
+const fakeFilePath = "./test2.txt";
 
 
-describe("isFile validator", () => {
+describe("read permission validator", () => {
     beforeAll(() => {
         fs.writeFileSync(filePath, "test");
         fs.mkdirSync(dirPath, {recursive: true});
@@ -16,19 +18,16 @@ describe("isFile validator", () => {
         fs.rmSync(dirPath, {recursive: true});
     });
     test("should throw Error", () => {
-        expect(() => isFileValidator(dirPath)).toThrow("Input and Output must be files");
+        expect(() => writePermissionValidator(fakeFilePath)).toThrow(`Output file isn't exist`);
     });
     test("should be instance of MyError", () => {
         try {
-            isFileValidator(dirPath)
+            writePermissionValidator(dirPath)
         } catch (e) {
             expect(e instanceof MyError).toBe(true);
-
         }
-
     });
     test("should return undefined because file path is correct", () => {
-        expect(isFileValidator(filePath)).toBe(undefined);
+        expect(writePermissionValidator(filePath)).toBe(undefined);
     });
 });
-

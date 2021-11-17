@@ -1,12 +1,13 @@
+
 const {expect, describe, beforeAll, afterAll} = require("@jest/globals");
 const fs = require('fs');
-const isFileValidator = require('./isFileValidator');
+const readPermissionValidator = require('./readPermissionValidator');
 const MyError = require('../myError/MyError');
 const dirPath = "./dir";
 const filePath = "./test.txt";
 
 
-describe("isFile validator", () => {
+describe("read permission validator", () => {
     beforeAll(() => {
         fs.writeFileSync(filePath, "test");
         fs.mkdirSync(dirPath, {recursive: true});
@@ -16,11 +17,11 @@ describe("isFile validator", () => {
         fs.rmSync(dirPath, {recursive: true});
     });
     test("should throw Error", () => {
-        expect(() => isFileValidator(dirPath)).toThrow("Input and Output must be files");
+        expect(() => readPermissionValidator(dirPath)).toThrow("Operation read file not permitted");
     });
     test("should be instance of MyError", () => {
         try {
-            isFileValidator(dirPath)
+            readPermissionValidator(dirPath)
         } catch (e) {
             expect(e instanceof MyError).toBe(true);
 
@@ -28,7 +29,6 @@ describe("isFile validator", () => {
 
     });
     test("should return undefined because file path is correct", () => {
-        expect(isFileValidator(filePath)).toBe(undefined);
+        expect(readPermissionValidator(filePath)).toBe(undefined);
     });
 });
-
