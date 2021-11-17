@@ -2,7 +2,8 @@ const validateConfig = require('../../tests/nodeJsQ4-tests/validators/configVali
 const {expect, describe, beforeAll, afterAll} = require("@jest/globals");
 const fs = require('fs');
 const isFileValidator = require('./isFileValidator');
-const myError = new Error("test for error handler");
+const MyError = require('../myError/MyError');
+const myError = new MyError("Input and Output must be files");
 const dirPath = "./dir";
 const filePath = "./test.txt";
 
@@ -26,10 +27,16 @@ describe("isFile validator", () => {
         expect(() => isFileValidator(dirPath)).toThrow("Input and Output must be files");
     });
     test("should be instance of MyError", () => {
-        expect(() => isFileValidator(dirPath)).toThrow(myError);
+        try {
+            isFileValidator(dirPath)
+        } catch (e) {
+            expect(e instanceof MyError).toBe(true);
+
+        }
+
     });
     test("should return undefined because file path is correct", () => {
-        expect( isFileValidator(filePath)).toBe(undefined);
+        expect(isFileValidator(filePath)).toBe(undefined);
     });
 });
 
