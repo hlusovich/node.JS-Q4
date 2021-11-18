@@ -3,7 +3,7 @@ const fs = require('fs');
 const isFileValidator = require('./isFileValidator');
 const MyError = require('../myError/MyError');
 const dirPath = "./dir";
-const filePath = "./test.txt";
+const filePath = "./test2.txt";
 
 
 describe("isFile validator", () => {

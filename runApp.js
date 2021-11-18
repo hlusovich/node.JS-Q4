@@ -12,7 +12,7 @@ const MyError = require('./myError/MyError');
 const chainStreams = require("./streams/chainStreams");
 const writePermissionValidator = require('./validators/writePermissionValidator');
 const runApp = () => {
-    try {
+    try{
         optionValidator();
         const config = configParser();
         if (!config) {
@@ -33,9 +33,13 @@ const runApp = () => {
             isFileValidator(output);
         }
         return chainStreams(createReadStream(input), createWriteStream(output), config);
-    } catch (e) {
-        errorHandler(e);
     }
+    catch (e) {
+        errorHandler(e);
+
+    }
+
+
 };
 
 module.exports = runApp();

@@ -1,9 +1,8 @@
-
 const {expect, describe, beforeAll, afterAll} = require("@jest/globals");
 const fs = require('fs');
 const readPermissionValidator = require('./readPermissionValidator');
 const MyError = require('../myError/MyError');
-const dirPath = "./dir";
+const dirPath = "./dir3";
 const filePath = "./test.txt";
 
 

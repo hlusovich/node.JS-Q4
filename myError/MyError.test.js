@@ -5,7 +5,7 @@ describe("My error", ()=>{
     test("should be instance of Error", () => {
      expect(myError instanceof Error).toBe(true);
     });
-    test("should be with message some text", () => {
+    test("should be instance with message some text", () => {
         expect(myError.message ).toBe("Some text");
     });
 });
