@@ -7,7 +7,7 @@ class CaesarTransformStream extends Transform {
         this.rotation = rotation;
     }
 
-    encode(charCode, rotation, step = 1) {
+    encode(charCode, rotation = this.rotation, step = 1) {
         if (step > ALPHABET_LENGTH) {
             step = step % ALPHABET_LENGTH;
         }

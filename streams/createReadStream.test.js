@@ -4,20 +4,22 @@ const createReadStream = require('./createReadStream');
 const filePath = "./tes.txt";
 const incorrectFilePath = "./incorrect2.txt";
 const MyReadableStream = require('./MyReadableStream');
-
+let readStream = null;
 
 describe("read stream creator ", () => {
-    beforeAll(() => {
+    beforeAll(async () => {
         fs.writeFileSync(filePath, "test");
+        readStream = await createReadStream(filePath);
     });
     afterAll(() => {
-        fs.unlinkSync(filePath);
+        setTimeout( ()=>fs.unlinkSync(filePath), 0);
+
     });
     test("get correct path and should return instance of MyReadableStream", ()=>{
-        expect(createReadStream(filePath) instanceof MyReadableStream).toBe(true);
+        expect( readStream instanceof MyReadableStream).toBe(true);
     });
-    test("get incorrect path and should return error This input isn't exist", ()=>{
-        expect(()=>createReadStream(incorrectFilePath) ).toThrow("This input isn't exist");
+    test("get incorrect path and should return error This input isn't exist", async ()=>{
+       await expect(()=>createReadStream(incorrectFilePath) ).toThrow("This input isn't exist");
     });
 
 });

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.51% </span>
+                <span class="strong">51.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/27</span>
+                <span class='fraction'>14/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">45% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>9/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.51% </span>
+                <span class="strong">51.85% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/27</span>
+                <span class='fraction'>14/27</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -122,25 +122,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -152,8 +140,20 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -180,10 +180,10 @@ class Rot8TransformStream extends Transform {
         this.rotation = rotation;
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    en</span>code(charCode, rotation) {
-        const step = <span class="cstat-no" title="statement not covered" >8;</span>
-<span class="cstat-no" title="statement not covered" >        if (charCode &gt;= START_CHAR_CODE &amp;&amp; charCode &lt;= END_CHAR_CODE) {</span>
-<span class="cstat-no" title="statement not covered" >            if (rotation === "right") {</span>
+    encode(charCode, rotation) {
+        const step = 8;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (charCode &gt;= START_CHAR_CODE &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >charCode &lt;= END_CHAR_CODE)</span> {
+<span class="cstat-no" title="statement not covered" >            if (this.rotation === "right") {</span>
 <span class="cstat-no" title="statement not covered" >                charCode += step;</span>
 <span class="cstat-no" title="statement not covered" >                if (charCode &gt; END_CHAR_CODE) {</span>
 <span class="cstat-no" title="statement not covered" >                    charCode = charCode - ALPHABET_LENGTH;</span>
@@ -194,24 +194,24 @@ class Rot8TransformStream extends Transform {
 <span class="cstat-no" title="statement not covered" >                    charCode = charCode + ALPHABET_LENGTH;</span>
                 }
             }
-        } else <span class="cstat-no" title="statement not covered" >if (charCode &gt;= START_CHAR_CODE_UPPER_CASE &amp;&amp; charCode &lt;= END_CHAR_CODE_UPPER_CASE) {</span>
-<span class="cstat-no" title="statement not covered" >            if (rotation === "right") {</span>
-<span class="cstat-no" title="statement not covered" >                charCode += step;</span>
-<span class="cstat-no" title="statement not covered" >                if (charCode &gt; END_CHAR_CODE_UPPER_CASE) {</span>
+        } else if (charCode &gt;= START_CHAR_CODE_UPPER_CASE &amp;&amp; charCode &lt;= END_CHAR_CODE_UPPER_CASE) {
+            if (this.rotation === "right") {
+                charCode += step;
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (charCode &gt; END_CHAR_CODE_UPPER_CASE) {
 <span class="cstat-no" title="statement not covered" >                    charCode = charCode - ALPHABET_LENGTH;</span>
                 }
             } else {
-<span class="cstat-no" title="statement not covered" >                charCode -= step;</span>
-<span class="cstat-no" title="statement not covered" >                if (charCode &lt; START_CHAR_CODE_UPPER_CASE) {</span>
+                charCode -= step;
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (charCode &lt; START_CHAR_CODE_UPPER_CASE) {
 <span class="cstat-no" title="statement not covered" >                    charCode = charCode + ALPHABET_LENGTH;</span>
                 }
             }
         }
-<span class="cstat-no" title="statement not covered" >        return charCode;</span>
+        return charCode;
     }
 <span class="fstat-no" title="function not covered" >    _t</span>ransform(chunk, encoding, done) {
         let result = <span class="cstat-no" title="statement not covered" >chunk.map(<span class="fstat-no" title="function not covered" >it</span>em =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            return this.encode(item, this.rotation);</span>
+<span class="cstat-no" title="statement not covered" >            return this.encode(item);</span>
         });
 <span class="cstat-no" title="statement not covered" >        this.push(result, encoding);</span>
 <span class="cstat-no" title="statement not covered" >        done();</span>
@@ -226,7 +226,7 @@ module.exports = Rot8TransformStream;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Nov 19 2021 23:14:59 GMT+0300 (Москва, стандартное время)
+                at Fri Nov 19 2021 23:53:09 GMT+0300 (Москва, стандартное время)
             </div>
         </div>
         <script src="../../prettify.js"></script>

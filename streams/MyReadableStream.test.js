@@ -1,20 +1,20 @@
 const {expect, describe, beforeAll, afterAll} = require("@jest/globals");
 const fs = require('fs');
-const createWriteStream = require('./createWriteStream');
 const filePath = "./testReadable.txt";
 const MyReadableStream = require('./MyReadableStream');
 const { Readable } = require('stream');
-
+let myReadableStream  = null;
 
 describe(" My readable stream  ", () => {
     beforeAll(() => {
         fs.writeFileSync(filePath, "test");
+        myReadableStream = new MyReadableStream(filePath);
     });
     afterAll(() => {
-        fs.unlinkSync(filePath);
+        setTimeout( ()=>fs.unlinkSync(filePath), 0);
     });
-    test("should be instance of Readable", ()=>{
-        expect(new MyReadableStream(filePath) instanceof Readable).toBe(true);
+    test("should be instance of Readable",  ()=>{
+        expect(myReadableStream instanceof Readable).toBe(true);
     });
 
 });
