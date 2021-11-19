@@ -5,22 +5,16 @@ const MyError = require('../myError/MyError');
 const errorHandler = require('../handlers/errorHandler');
 const MyWriteStream = require('../streams/MyWritableStream');
 const createWriteStream = (filePath) => {
-    try {
-        if (filePath) {
-            const isExist = fs.existsSync(path.join(PATH, filePath));
-            if (isExist) {
-                return new MyWriteStream(path.join(PATH, filePath));
-            } else {
-                throw new MyError("This output isn't exist");
-            }
+    if (filePath) {
+        const isExist = fs.existsSync(path.join(PATH, filePath));
+        if (isExist) {
+            return new MyWriteStream(path.join(PATH, filePath));
         } else {
-            return process.stdout;
+            throw new MyError("This output isn't exist");
         }
-    } catch (e) {
-        errorHandler(e);
+    } else {
+        return process.stdout;
     }
-
-
 };
 
 module.exports = createWriteStream;

@@ -1,10 +1,15 @@
 const {expect} = require("@jest/globals");
 const errorHandler = require('./errorHandler');
-const myError = new Error("test for error handler");
+const MyError = require('../myError/MyError');
+const error = new Error("test for error handler");
+const myError = new MyError("test for My error");
 
 test("should return Error", () => {
-    expect(() => errorHandler(myError)).toThrow(myError);
+    expect(() => errorHandler(error)).toThrow(error);
 });
 test("should return correct Errors text", () => {
-    expect(() => errorHandler(myError)).toThrow("test for error handler");
-});
+    expect(() => errorHandler(error)).toThrow("test for error handler");
+
+}
+);
+

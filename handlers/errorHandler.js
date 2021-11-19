@@ -5,6 +5,7 @@ const errorHandler = (error) => {
         process.exit(42);
     }
     else{
+        process.stderr.write(`Error ${error.message}`);
         throw  new Error(error.message);
     }
 

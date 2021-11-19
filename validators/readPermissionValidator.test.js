@@ -1,3 +1,4 @@
+
 const {expect, describe, beforeAll, afterAll} = require("@jest/globals");
 const fs = require('fs');
 const readPermissionValidator = require('./readPermissionValidator');
@@ -23,7 +24,6 @@ describe("read permission validator", () => {
             readPermissionValidator(dirPath)
         } catch (e) {
             expect(e instanceof MyError).toBe(true);
-
         }
 
     });

@@ -5,20 +5,17 @@ const errorHandler = require('../handlers/errorHandler');
 const MyReadStream = require('../streams/MyReadableStream');
 const MyError = require('../myError/MyError');
 const createReadStream = (filePath) => {
-    try {
-        if (filePath) {
-            const isExist = fs.existsSync(path.join(PATH, filePath));
-            if (isExist) {
-                return new MyReadStream(path.join(PATH, filePath));
-            } else {
-                throw new MyError("This input isn't exist");
-            }
+    if (filePath) {
+        const isExist = fs.existsSync(path.join(PATH, filePath));
+        if (isExist) {
+            return new MyReadStream(path.join(PATH, filePath));
         } else {
-            return process.stdin;
+            throw new MyError("This input isn't exist");
         }
-    } catch (e) {
-        errorHandler(e);
+    } else {
+        return process.stdin;
     }
+
 
 };
 

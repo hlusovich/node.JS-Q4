@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for node.JS-Q4/streams/AtbashTransformStream.js</title>
+    <title>Code coverage report for node.JS-Q4/streams/MyWritableStream.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">node.JS-Q4/streams</a> AtbashTransformStream.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">node.JS-Q4/streams</a> MyWritableStream.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.76% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/13</span>
+                <span class='fraction'>5/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">16.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>1/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.76% </span>
+                <span class="strong">35.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/13</span>
+                <span class='fraction'>5/14</span>
             </div>
         
             
@@ -87,72 +87,66 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const {Transform} = require('stream');
-const {
-    START_CHAR_CODE,
-    END_CHAR_CODE,
-    START_CHAR_CODE_UPPER_CASE,
-    END_CHAR_CODE_UPPER_CASE,
-} = require("../env");
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const { Writable } = require('stream');
+const fs = require('fs');
 &nbsp;
-class AtbashTransformStream extends Transform {
-    constructor() {
+class MyWritableStream extends Writable {
+    constructor(filename) {
         super();
+        this.filename = filename;
     }
-&nbsp;
-<span class="fstat-no" title="function not covered" >    en</span>code(charCode) {
-<span class="cstat-no" title="statement not covered" >        if (charCode &gt;= START_CHAR_CODE &amp;&amp; charCode &lt;= END_CHAR_CODE) {</span>
-<span class="cstat-no" title="statement not covered" >            charCode = END_CHAR_CODE - charCode + START_CHAR_CODE;</span>
-        } else <span class="cstat-no" title="statement not covered" >if (charCode &gt;= START_CHAR_CODE_UPPER_CASE &amp;&amp; charCode &lt;= END_CHAR_CODE_UPPER_CASE) {</span>
-<span class="cstat-no" title="statement not covered" >            charCode = END_CHAR_CODE_UPPER_CASE - charCode + START_CHAR_CODE_UPPER_CASE;</span>
-        }
-<span class="cstat-no" title="statement not covered" >        return charCode;</span>
-&nbsp;
-    }
-<span class="fstat-no" title="function not covered" >    _t</span>ransform(chunk, encoding, done) {
-        let result = <span class="cstat-no" title="statement not covered" >chunk.map(<span class="fstat-no" title="function not covered" >it</span>em =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            return this.encode(item);</span>
+<span class="fstat-no" title="function not covered" >    _c</span>onstruct(callback) {
+<span class="cstat-no" title="statement not covered" >        fs.open(this.filename, 'a',<span class="fstat-no" title="function not covered" >(e</span>rr, fd) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                callback(err);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                this.fd = fd;</span>
+<span class="cstat-no" title="statement not covered" >                callback();</span>
+            }
         });
-<span class="cstat-no" title="statement not covered" >        this.push(result, encoding);</span>
-<span class="cstat-no" title="statement not covered" >        done();</span>
+    }
+<span class="fstat-no" title="function not covered" >    _w</span>rite(chunk, encoding, callback) {
+<span class="cstat-no" title="statement not covered" >        fs.write(this.fd, chunk, callback);</span>
+    }
+<span class="fstat-no" title="function not covered" >    _d</span>estroy(err, callback) {
+<span class="cstat-no" title="statement not covered" >        if (this.fd) {</span>
+<span class="cstat-no" title="statement not covered" >            fs.close(this.fd, <span class="fstat-no" title="function not covered" >(e</span>r) =&gt; <span class="cstat-no" title="statement not covered" >callback(er || err))</span>;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            callback(err);</span>
+        }
     }
 }
-&nbsp;
-module.exports = AtbashTransformStream;
+ module.exports = MyWritableStream;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

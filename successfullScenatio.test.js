@@ -6,11 +6,7 @@ const MyError = require('./myError/MyError');
 const options = {
     cwd: __dirname
 };
-const errorParser = ({message}) => {
-    const errorArray = message.split("Error");
-    return errorArray[errorArray.length - 1];
 
-};
 
 describe("integration tests", () => {
     beforeEach(() => {
@@ -46,21 +42,6 @@ describe("integration tests", () => {
         const result = fs.readFileSync("./output.txt", {encoding: 'utf-8'});
         expect(result).toBe("This is secret. Message about \"_\" symbol!");
     });
-    test("test fifth scenario should return error Config isn't correct. Please check all encoder's names. -c \"C1-R1-C0-C0-A-R0-R1-R1-A-C1\" -i \"./input.txt\" -o \"./output.txt\"", () => {
-        try {
-            child_process.execSync("node my_ciphering_cli -c \"C1-R1-C0-C0-A-R0-R1-R1-A-C\" -i \"./input5.txt\" -o \"./output5.txt");
-        } catch (e) {
-            expect(errorParser(e)).toBe(" Config isn't correct. Please check all encoder's names.")
-        }
-    });
-    test("test first Error Scenario  Config isn't correct. Please check all encoder's names. -c \"C1-R1-C0-C0-A-R0-R1-R1-A-C1\" -i \"./input.txt\" -o \"./output.txt\"", () => {
-        try {
-            child_process.execSync("node my_ciphering_cli -c \"C1-R1-C0-C0-A-R0-R1-R1-A-C\" -i \"./input5.txt\" -o \"./output5.txt");
-        } catch (e) {
-            expect(errorParser(e)).toBe(" Config isn't correct. Please check all encoder's names.")
-        }
-    });
-
 
 });
 
