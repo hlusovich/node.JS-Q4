@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.53% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.53% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -104,20 +104,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -137,20 +137,20 @@ class AtbashTransformStream extends Transform {
     }
 &nbsp;
     encode(charCode) {
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (charCode &gt;= START_CHAR_CODE &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >charCode &lt;= END_CHAR_CODE)</span> {
-<span class="cstat-no" title="statement not covered" >            charCode = END_CHAR_CODE - charCode + START_CHAR_CODE;</span>
+        if (charCode &gt;= START_CHAR_CODE &amp;&amp; charCode &lt;= END_CHAR_CODE) {
+            charCode = END_CHAR_CODE - charCode + START_CHAR_CODE;
         } else if (charCode &gt;= START_CHAR_CODE_UPPER_CASE &amp;&amp; charCode &lt;= END_CHAR_CODE_UPPER_CASE) {
             charCode = END_CHAR_CODE_UPPER_CASE - charCode + START_CHAR_CODE_UPPER_CASE;
         }
         return charCode;
 &nbsp;
     }
-<span class="fstat-no" title="function not covered" >    _t</span>ransform(chunk, encoding, done) {
-        let result = <span class="cstat-no" title="statement not covered" >chunk.map(<span class="fstat-no" title="function not covered" >it</span>em =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            return this.encode(item);</span>
+    _transform(chunk, encoding, done) {
+        let result = chunk.map(item =&gt; {
+            return this.encode(item);
         });
-<span class="cstat-no" title="statement not covered" >        this.push(result, encoding);</span>
-<span class="cstat-no" title="statement not covered" >        done();</span>
+        this.push(result, encoding);
+        done();
     }
 }
 &nbsp;
@@ -163,7 +163,7 @@ module.exports = AtbashTransformStream;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Nov 19 2021 23:53:09 GMT+0300 (Москва, стандартное время)
+                at Sat Nov 20 2021 00:10:48 GMT+0300 (Москва, стандартное время)
             </div>
         </div>
         <script src="../../prettify.js"></script>
