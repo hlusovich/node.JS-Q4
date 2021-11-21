@@ -8,9 +8,6 @@ class CaesarTransformStream extends Transform {
     }
 
     encode(charCode, rotation = this.rotation, step = 1) {
-        if (step > ALPHABET_LENGTH) {
-            step = step % ALPHABET_LENGTH;
-        }
         if (charCode >= START_CHAR_CODE && charCode <= END_CHAR_CODE) {
             switch (rotation) {
                 case "left":
@@ -45,7 +42,6 @@ class CaesarTransformStream extends Transform {
         return charCode;
 
     }
-
     _transform(chunk, encoding, done) {
         let result = chunk.map(item => {
             return this.encode(item, this.rotation);

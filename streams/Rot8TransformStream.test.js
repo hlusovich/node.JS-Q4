@@ -44,6 +44,9 @@ describe("Rot8 Transform Stream ", () => {
     test("must encode rot8 with right rotation", () => {
         expect(rot8streamRight.encode(82)).toBe(90);
     });
+    test("must encode rot8streamRight with no english alphabet", () => {
+        expect(rot8streamRight.encode(40)).toBe(40);
+    });
 
 
 });

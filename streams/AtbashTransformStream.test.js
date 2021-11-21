@@ -35,4 +35,7 @@ describe("atbash stream", () => {
     test("must decode atbash ", ()=>{
         expect(atbash.encode(65)).toBe(90);
     });
+    test("must encode atbash with no english alphabet", () => {
+        expect(atbash.encode(40)).toBe(40);
+    });
 });

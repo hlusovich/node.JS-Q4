@@ -5,6 +5,7 @@ const readPermissionValidator = require('./readPermissionValidator');
 const MyError = require('../myError/MyError');
 const dirPath = "./dir3";
 const filePath = "./t.txt";
+const fakeFilePath = "./fakepath.txt";
 
 
 describe("read permission validator", () => {
@@ -27,7 +28,10 @@ describe("read permission validator", () => {
         }
 
     });
-    test("should return undefined because file path is correct", () => {
-        expect(readPermissionValidator(filePath)).toBe(undefined);
+    test("should return true because file path is correct", () => {
+        expect(readPermissionValidator(filePath)).toBe(true);
+    });
+    test("should return Error input file isn't exist", () => {
+        expect(()=>readPermissionValidator(fakeFilePath)).toThrow(`Input file isn't exist`);
     });
 });

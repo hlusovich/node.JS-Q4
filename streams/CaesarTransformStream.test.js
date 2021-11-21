@@ -58,6 +58,21 @@ describe("Caesar Transform Stream ", () => {
     test("must encode caesar with right rotation", () => {
         expect(cesarTransformStreamRight.encode(89)).toBe(90);
     });
+    test("must encode caesar with left rotation in upper case", () => {
+        expect(cesarTransformStreamLeft.encode(110)).toBe(109);
+    });
+    test("must encode caesar with right rotation in upper case", () => {
+        expect(cesarTransformStreamRight.encode(110)).toBe(111);
+    });
+    test("must encode caesar with right rotation with no english alphabet", () => {
+        expect(cesarTransformStreamRight.encode(40)).toBe(40);
+    });
+    test("must encode caesar with left rotation with no english alphabet", () => {
+        expect(cesarTransformStreamLeft.encode(40)).toBe(40);
+    });
+    test("must encode caesar if char code become less than start after decrement step", () => {
+        expect(cesarTransformStreamLeft.encode(97)).toBe(122);
+    });
 
 
 });

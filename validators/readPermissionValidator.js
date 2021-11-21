@@ -9,6 +9,7 @@ function checkReadPermission(filePatch) {
         const isExist = fs.existsSync(path.join(PATH, filePatch));
         if (isExist) {
             fs.readFileSync(filePatch, 'utf8');
+            return true;
         } else {
             errorText = `Input file isn't exist`;
             throw  new MyError(`Input file isn't exist`);
