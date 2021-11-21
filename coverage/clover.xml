@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637356248821" clover="3.2.0">
-  <project timestamp="1637356248821" name="All files">
-    <metrics statements="193" coveredstatements="152" conditionals="86" coveredconditionals="51" methods="39" coveredmethods="28" elements="318" coveredelements="231" complexity="0" loc="193" ncloc="193" packages="5" files="15" classes="15"/>
+<coverage generated="1637485757592" clover="3.2.0">
+  <project timestamp="1637485757592" name="All files">
+    <metrics statements="156" coveredstatements="142" conditionals="71" coveredconditionals="55" methods="26" coveredmethods="26" elements="253" coveredelements="223" complexity="0" loc="156" ncloc="156" packages="5" files="13" classes="13"/>
     <package name="node.JS-Q4">
       <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
       <file name="commandsForTransformStream.js" path="C:\Users\User\Desktop\nodeJS.Q4\node.JS-Q4\commandsForTransformStream.js">
@@ -18,34 +18,34 @@
       </file>
       <file name="env.js" path="C:\Users\User\Desktop\nodeJS.Q4\node.JS-Q4\env.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="10" type="stmt"/>
-        <line num="10" count="10" type="stmt"/>
+        <line num="1" count="9" type="stmt"/>
+        <line num="10" count="9" type="stmt"/>
       </file>
     </package>
     <package name="node.JS-Q4.handlers">
       <metrics statements="8" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="errorHandler.js" path="C:\Users\User\Desktop\nodeJS.Q4\node.JS-Q4\handlers\errorHandler.js">
         <metrics statements="8" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="stmt"/>
-        <line num="2" count="5" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="4" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
-        <line num="13" count="5" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
       </file>
     </package>
     <package name="node.JS-Q4.myError">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="MyError.js" path="C:\Users\User\Desktop\nodeJS.Q4\node.JS-Q4\myError\MyError.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="9" type="stmt"/>
-        <line num="7" count="10" type="stmt"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
       </file>
     </package>
     <package name="node.JS-Q4.streams">
-      <metrics statements="134" coveredstatements="97" conditionals="76" coveredconditionals="43" methods="27" coveredmethods="16"/>
+      <metrics statements="97" coveredstatements="87" conditionals="61" coveredconditionals="47" methods="14" coveredmethods="14"/>
       <file name="AtbashTransformStream.js" path="C:\Users\User\Desktop\nodeJS.Q4\node.JS-Q4\streams\AtbashTransformStream.js">
         <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="4"/>
         <line num="1" count="3" type="stmt"/>
@@ -63,19 +63,19 @@
         <line num="33" count="3" type="stmt"/>
       </file>
       <file name="CaesarTransformStream.js" path="C:\Users\User\Desktop\nodeJS.Q4\node.JS-Q4\streams\CaesarTransformStream.js">
-        <metrics statements="32" coveredstatements="24" conditionals="24" coveredconditionals="16" methods="4" coveredmethods="4"/>
+        <metrics statements="32" coveredstatements="27" conditionals="24" coveredconditionals="17" methods="4" coveredmethods="4"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="6" count="4" type="stmt"/>
         <line num="7" count="4" type="stmt"/>
-        <line num="11" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="8" type="cond" truecount="1" falsecount="1"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="14" count="5" type="cond" truecount="4" falsecount="0"/>
-        <line num="15" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="8" type="cond" truecount="4" falsecount="0"/>
+        <line num="15" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
         <line num="23" count="3" type="stmt"/>
         <line num="24" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="25" count="0" type="stmt"/>
@@ -90,55 +90,15 @@
         <line num="39" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="40" count="0" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
-        <line num="45" count="5" type="stmt"/>
-        <line num="50" count="3" type="stmt"/>
-        <line num="51" count="3" type="stmt"/>
-        <line num="53" count="3" type="stmt"/>
-        <line num="54" count="3" type="stmt"/>
+        <line num="45" count="8" type="stmt"/>
+        <line num="50" count="6" type="stmt"/>
+        <line num="51" count="6" type="stmt"/>
+        <line num="53" count="6" type="stmt"/>
+        <line num="54" count="6" type="stmt"/>
         <line num="58" count="3" type="stmt"/>
       </file>
-      <file name="MyReadableStream.js" path="C:\Users\User\Desktop\nodeJS.Q4\node.JS-Q4\streams\MyReadableStream.js">
-        <metrics statements="20" coveredstatements="7" conditionals="10" coveredconditionals="0" methods="7" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
-      </file>
-      <file name="MyWritableStream.js" path="C:\Users\User\Desktop\nodeJS.Q4\node.JS-Q4\streams\MyWritableStream.js">
-        <metrics statements="14" coveredstatements="5" conditionals="6" coveredconditionals="0" methods="6" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-      </file>
       <file name="Rot8TransformStream.js" path="C:\Users\User\Desktop\nodeJS.Q4\node.JS-Q4\streams\Rot8TransformStream.js">
-        <metrics statements="27" coveredstatements="22" conditionals="20" coveredconditionals="14" methods="4" coveredmethods="4"/>
+        <metrics statements="27" coveredstatements="22" conditionals="21" coveredconditionals="15" methods="4" coveredmethods="4"/>
         <line num="1" count="3" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
         <line num="12" count="4" type="stmt"/>
@@ -168,38 +128,35 @@
         <line num="54" count="3" type="stmt"/>
       </file>
       <file name="createReadStream.js" path="C:\Users\User\Desktop\nodeJS.Q4\node.JS-Q4\streams\createReadStream.js">
-        <metrics statements="14" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
       </file>
       <file name="createWriteStream.js" path="C:\Users\User\Desktop\nodeJS.Q4\node.JS-Q4\streams\createWriteStream.js">
-        <metrics statements="14" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
+        <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
       </file>
     </package>
     <package name="node.JS-Q4.validators">

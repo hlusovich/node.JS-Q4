@@ -1,5 +1,4 @@
 const options = [["-c", "--config"], ["-o", "--output"], ["-i", "--input"]];
-const MyError = require('../myError/MyError');
 const optionsValidator = () => {
     let errorText = "";
     options.map(option => {
@@ -9,8 +8,6 @@ const optionsValidator = () => {
             errorText += `Option ${options[index][1].slice(2)} was given ${item} times!!! \n`
         }
     });
-    if (errorText) {
-        throw new MyError(errorText)
-    }
+    return errorText;
 };
 module.exports = optionsValidator;

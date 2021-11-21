@@ -4,7 +4,7 @@ const fs = require('fs');
 const readPermissionValidator = require('./readPermissionValidator');
 const MyError = require('../myError/MyError');
 const dirPath = "./dir3";
-const filePath = "./test.txt";
+const filePath = "./t.txt";
 
 
 describe("read permission validator", () => {

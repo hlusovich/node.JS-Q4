@@ -13,10 +13,10 @@ class Rot8TransformStream extends Transform {
         this.rotation = rotation;
     }
 
-    encode(charCode, rotation) {
+    encode(charCode, rotation = this.rotation ) {
         const step = 8;
         if (charCode >= START_CHAR_CODE && charCode <= END_CHAR_CODE) {
-            if (this.rotation === "right") {
+            if (rotation === "right") {
                 charCode += step;
                 if (charCode > END_CHAR_CODE) {
                     charCode = charCode - ALPHABET_LENGTH;
@@ -28,7 +28,7 @@ class Rot8TransformStream extends Transform {
                 }
             }
         } else if (charCode >= START_CHAR_CODE_UPPER_CASE && charCode <= END_CHAR_CODE_UPPER_CASE) {
-            if (this.rotation === "right") {
+            if (rotation === "right") {
                 charCode += step;
                 if (charCode > END_CHAR_CODE_UPPER_CASE) {
                     charCode = charCode - ALPHABET_LENGTH;

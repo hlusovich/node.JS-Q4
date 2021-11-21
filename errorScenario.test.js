@@ -1,9 +1,6 @@
 const child_process = require("child_process");
 const {expect, describe, afterEach, beforeEach} = require("@jest/globals");
 const fs = require('fs');
-const MyError = require('./myError/MyError');
-
-
 const fileInputName = "./input2.txt";
 const outputFileName = "./output2.txt";
 
@@ -17,7 +14,7 @@ describe("Error scenarios", () => {
         fs.unlinkSync(outputFileName);
     });
 
-    test("1 should return Error that argument c was provided twice  node my_caesar_cli -c C1-C1-A-R0 -c C0", () => {
+    test("1 should return Error that argument c was provided twice  node my_caesar_cli -c C1-C1-A-R0 -c C0",  () => {
         try {
             child_process.execSync("node my_ciphering_cli -c \"C1-C1-R0-A\" -i \"./input2.txt\" -o \"./output2.txt\" -c \"C0\"" );
         } catch (e) {
@@ -52,9 +49,5 @@ describe("Error scenarios", () => {
             expect(e.message).toContain(" Config isn't correct. Please check all encoder's names.")
         }
     });
-
-
-
-
 
 });

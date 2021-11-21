@@ -13,7 +13,10 @@ const chainStreams = require("./streams/chainStreams");
 const writePermissionValidator = require('./validators/writePermissionValidator');
 const runApp = () => {
     try{
-        optionValidator();
+        const errorText = optionValidator();
+        if (errorText) {
+            throw new MyError(errorText)
+        }
         const config = configParser();
         if (!config) {
             throw  new MyError("Option config is required");
@@ -26,7 +29,6 @@ const runApp = () => {
         if (input) {
             readPermissionValidator(input);
             isFileValidator(input);
-
         }
         if (output) {
             writePermissionValidator(output);
@@ -36,9 +38,7 @@ const runApp = () => {
     }
     catch (e) {
         errorHandler(e);
-
     }
-
 
 };
 

@@ -1,9 +1,9 @@
 const {expect, describe, beforeAll, afterAll} = require("@jest/globals");
 const fs = require('fs');
+const {Readable} = require('stream');
 const createReadStream = require('./createReadStream');
 const filePath = "./tes.txt";
 const incorrectFilePath = "./incorrect2.txt";
-const MyReadableStream = require('./MyReadableStream');
 let readStream = null;
 
 describe("read stream creator ", () => {
@@ -15,11 +15,14 @@ describe("read stream creator ", () => {
         setTimeout( ()=>fs.unlinkSync(filePath), 0);
 
     });
-    test("get correct path and should return instance of MyReadableStream", ()=>{
-        expect( readStream instanceof MyReadableStream).toBe(true);
+    test("get correct path and should return instance of ReadableStream", ()=>{
+        expect( readStream instanceof Readable).toBe(true);
     });
-    test("get incorrect path and should return error This input isn't exist", async ()=>{
-       await expect(()=>createReadStream(incorrectFilePath) ).toThrow("This input isn't exist");
+    test("get incorrect path and should return error This input isn't exist",  ()=>{
+        expect(()=>createReadStream(incorrectFilePath) ).toThrow("This input isn't exist");
+    });
+    test("if no path", ()=>{
+        expect( createReadStream() instanceof Readable).toBe(true);
     });
 
 });

@@ -1,7 +1,6 @@
 const child_process = require("child_process");
 const {expect, describe, afterEach, beforeEach} = require("@jest/globals");
 const fs = require('fs');
-const MyError = require('./myError/MyError');
 
 const options = {
     cwd: __dirname
