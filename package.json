@@ -1,0 +1,23 @@
+{
+  "name": "node.js-q4",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hlusovich/node.JS-Q4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hlusovich/node.JS-Q4/issues"
+  },
+  "homepage": "https://github.com/hlusovich/node.JS-Q4#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
